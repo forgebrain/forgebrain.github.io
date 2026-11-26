@@ -1,6 +1,6 @@
 ---
 title: "浅谈计算机文化"
-date: 2015-01-01 00:00
+date: 2015-12-01 00:00
 category: prose
 tags: [技术, 读书, 人生观]
 source: 2015年讲稿
