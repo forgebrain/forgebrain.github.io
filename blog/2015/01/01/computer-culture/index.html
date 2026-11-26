@@ -1,0 +1,313 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>浅谈计算机文化 - ForgeBrain</title>
+  <meta name="author" content="ForgeBrain">
+
+  
+  <meta name="description" content="这是一次分享的讲稿，把几本讲个人管理的书和几门计算机课程放在一起对照来读。 《高效能人士时间与管理法则》与《Linux系统高效管理》 法则 1：掌握生活的大小事。 通过掌握时间而掌握生活。 对应到系统：系统崩溃、分盘、分目录、挂载、分权限、iptables 防火墙、备份、升级。 法则 2：确定核心价 &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://coolbrain.github.com/blog/2015/01/01/computer-culture/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="ForgeBrain" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-39361176-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:coolbrain.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+    <li><a href="/">
+        <span class="blue_light">
+            ForgeBrain
+        </span>
+       
+           <span class="blue_dark">
+             Hardworking.
+           </span>
+       
+    </a></li>
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/essays/">Essays</a></li>
+  <li><a href="/about">About me</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">浅谈计算机文化</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-01-01T00:00:00+08:00" pubdate data-updated="true">Jan 1<span>st</span>, 2015</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><!-- essays:generated --><style>.essay strong{color:#b03a2e;font-weight:bold}.essay mark{background:#fdf2c4;color:inherit;padding:0 .15em}</style>
+<div class="essay">
+<p>这是一次分享的讲稿，把几本讲个人管理的书和几门计算机课程放在一起对照来读。</p>
+<h3>《高效能人士时间与管理法则》与《Linux系统高效管理》</h3>
+<ul>
+<li><strong>法则 1：掌握生活的大小事。</strong> 通过掌握时间而掌握生活。<br />
+  对应到系统：系统崩溃、分盘、分目录、挂载、分权限、iptables 防火墙、备份、升级。</li>
+<li><strong>法则 2：确定核心价值。</strong> 核心价值是自我实现和个人成就的基础。<br />
+  对应到系统：专门的数据库系统 MySQL、接入请求系统 Nginx、负载均衡 LVS、ZooKeeper 等。</li>
+<li><strong>法则 3：排定优先级。</strong> 当日常生活反映了你的核心价值时，你就能体验发自内心的平静。<br />
+  对应到系统：进程的优先级，硬中断与软中断的区分处理。</li>
+<li><strong>法则 4：设定可行的目标。</strong> 目标应当合理，且有一定的价值。<br />
+  对应到系统：系统分为内核态和用户态，用户态的进程应该做好自己的本分，不要不断尝试去做内核态的角色，而是利用现有系统提供的 API 接口去实现有价值的任务。</li>
+<li><strong>法则 5：规划好每日工作。</strong> 每日规划做得好，时间宽裕效率高。<br />
+  对应到系统：Linux 系统的 crond 定时定点地执行任务，如备份、检查进程的运行状态、重启服务。</li>
+</ul>
+<h3>《高效能人士的七个习惯》与《操作系统分析与设计》</h3>
+<ul>
+<li><strong>由内而外全面造就自己：</strong> 品德、个人魅力、才能。<br />
+  对应到系统：核心态负责进程管理、内存管理、文件管理、设备管理；用户态是各种具有不同功能的进程和服务。</li>
+<li><strong>习惯三：要事第一。</strong> 自我管理的原则。<br />
+  对应到系统：进程的优先级、优先级反转、硬中断与软中断的区分处理。</li>
+<li><strong>习惯四：双赢思维。</strong> 人际领导的原则，与人方便即是与自己方便。<br />
+  对应到系统：TCP 拥塞机制的设计，带宽有限，在丢包的情况下，减少数据包的发送。</li>
+<li><strong>习惯五：知彼解己。</strong> 移情沟通的原则，首先理解他人，进一步让他人理解自己。<br />
+  对应到系统：进程通过管道通信，以文本的方式输入到进程，进程处理后再输送到其它进程。因此首要的一点是进程能够理解其它进程的输入，经过自己的处理后输出给其它进程处理。</li>
+<li><strong>习惯六：统合综效。</strong> 创造性合作的原则，开放思维，倾听意见，提升自我。<br />
+  对应到系统：进程通信除了管道外，还有信号量、共享内存、域套接字、TCP/IP 等；实际应用中，多个进程合作协同的通信方式会依据具体场景选择。</li>
+<li><strong>习惯七：不断更新。</strong> 平衡自我的自我更新原则。<br />
+  对应到系统：系统也是不断地升级更新，不断地优化性能和增加新功能。</li>
+</ul>
+<h3>《算法分析与设计》与《人生选择》</h3>
+<ul>
+<li><strong>排序算法</strong>，包括冒泡、插入、希尔、快排、堆排序等。<br />
+  当一个优秀的程序员拿到很多很好的 offer，BAT、携程、去哪儿网、大疆……可能他会综合各种因素，并给各种因素设定比例因子，进行排序。</li>
+<li><strong>贪心算法</strong>：在每一步的选择中，都采取当前状态下最好或最优的选择，从而希望结果也是最好或最优的。<br />
+  根据当前自己的目标和需要，选择目前比较好的一种结果，而不去考虑未来的事情。比如薪资高是主要目标，那么就选择一个能给出最高薪资的公司；稳定是主要目标，那么选择大国企；兴趣是主要目标，那么选择利于发展兴趣的公司。<mark>虽然贪心算法有时候急功近利，但如果贪心的方向是正确的，贪心算法也是一种利于解决问题的方式。</mark></li>
+<li><strong>动态规划</strong>：与贪心算法最大的不同在于，贪心算法只是做出选择，不能对过程优化；而动态规划会保存以前的运算结果，并根据以前的结果对当前进行选择，会进行过程优化。<br />
+  承前启后：每步的选择都是由优化过的子过程来决定；可以回退：当前的选择未必是最优的，可能被未来更多更好的选择抛弃。</li>
+</ul>
+<h3>更多的对照</h3>
+<ul>
+<li><strong>《软件开源》与《人生分享》：</strong> Linux、Apache、Google 人工智能引擎开源……赠人玫瑰，手有余香。IEEE 组织将程序员定义为一种使用 Google、GitHub、Stack Overflow 解决问题的动物。</li>
+<li><strong>《分布式计算》与《复杂问题解决》：</strong> 用 MapReduce 的处理思想解决人生复杂问题或社会问题。如秦国实现大一统，离间各国，之后远交近攻、逐个击破。</li>
+<li><strong>《云计算》与《生活》：</strong> 云计算提供黑盒子的方式，动态扩容伸展。对于个体，有时候生活轻松如意，有时候却艰苦不如意，要及时调整自己，如云计算的黑盒子一样。</li>
+<li><strong>《大数据》与《认识自我》：</strong> 通过对自己的言行举止等数据，对自己进行兴趣的挖掘，或者心理和身体上的异常挖掘。</li>
+</ul>
+<h3>小结</h3>
+<p><strong>上面通过几本书的比较，得出计算机行为与个人管理很相似，因为计算机由人设计，它不但是工具，而且折射出人类文化的进步和思想。</strong> 人类文化、计算机文化、Unix 哲学、算法导论、管理与心理文化、时间与个人管理法则，彼此相通。</p>
+</div>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">ForgeBrain</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-01-01T00:00:00+08:00" pubdate data-updated="true">Jan 1<span>st</span>, 2015</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/prose/'>散文与讲稿</a>, <a class='category' href='/blog/tags/tech/'>技术</a>, <a class='category' href='/blog/tags/reading/'>读书</a>, <a class='category' href='/blog/tags/outlook/'>人生观</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+  
+</div>
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/03/10/cnblogs-2952837/" title="Previous Post: 烂透了与棒极了">&laquo; 烂透了与棒极了</a>
+        <a class="basic-alignment right" href="/blog/2015/05/19/cnblogs-4515903/" title="Next Post: 广州好去处">广州好去处 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Motto</h1>
+  <p>Reading is fantastic</p>
+  <p>Read incomparable book</p>
+  <p>Be enthusiastic in studying</p>
+  <p>PS:email:juda-zhida@qq.com</p>
+</section>
+
+<section>
+<h1>Tags</h1>
+<span class='categories_tag'><!--essay-tags--> <a href='/blog/categories/emotion' style='font-size: 120%'>情感</a>  <a href='/blog/categories/reason' style='font-size: 120%'>理性</a>  <a href='/blog/categories/qzone' style='font-size: 120%'>QQ空间日志</a>  <a href='/blog/categories/wechat' style='font-size: 120%'>公众号</a>  <a href='/blog/categories/prose' style='font-size: 120%'>散文与讲稿</a>  <a href='/blog/categories/letters' style='font-size: 120%'>邮件</a>  <a href='/blog/tags/family/' style='font-size: 130%'>家庭</a> <a href='/blog/tags/parents/' style='font-size: 114%'>父母</a> <a href='/blog/tags/growth/' style='font-size: 128%'>成长</a> <a href='/blog/tags/reflection/' style='font-size: 160%'>反思</a> <a href='/blog/tags/campus/' style='font-size: 122%'>校园</a> <a href='/blog/tags/study/' style='font-size: 120%'>求学</a> <a href='/blog/tags/career/' style='font-size: 108%'>求职</a> <a href='/blog/tags/gratitude/' style='font-size: 114%'>感恩</a> <a href='/blog/tags/outlook/' style='font-size: 144%'>人生观</a> <a href='/blog/tags/buddhism/' style='font-size: 102%'>佛学</a> <a href='/blog/tags/confidence/' style='font-size: 116%'>自信</a> <a href='/blog/tags/friendship/' style='font-size: 104%'>友情</a> <a href='/blog/tags/travel/' style='font-size: 112%'>旅行</a> <a href='/blog/tags/plans/' style='font-size: 106%'>计划</a> <a href='/blog/tags/money/' style='font-size: 108%'>金钱</a> <a href='/blog/tags/health/' style='font-size: 122%'>健康</a> <a href='/blog/tags/film/' style='font-size: 118%'>电影</a> <a href='/blog/tags/reading/' style='font-size: 116%'>读书</a> <a href='/blog/tags/mood/' style='font-size: 130%'>情绪</a> <a href='/blog/tags/tech/' style='font-size: 102%'>技术</a> <!--/essay-tags--> <a href='/blog/categories/english' style='font-size: 109.47368421052632%'>English</a>  <a href='/blog/categories/entertainment' style='font-size: 109.47368421052632%'>Entertainment</a>  <a href='/blog/categories/health' style='font-size: 103.15789473684211%'>Health</a>  <a href='/blog/categories/intern' style='font-size: 106.3157894736842%'>Intern</a>  <a href='/blog/categories/java' style='font-size: 103.15789473684211%'>Java</a>  <a href='/blog/categories/journey' style='font-size: 109.47368421052632%'>Journey</a>  <a href='/blog/categories/library' style='font-size: 106.3157894736842%'>Library</a>  <a href='/blog/categories/life' style='font-size: 128.42105263157896%'>Life</a>  <a href='/blog/categories/linux' style='font-size: 147.3684210526316%'>Linux</a>  <a href='/blog/categories/literature' style='font-size: 106.3157894736842%'>Literature</a>  <a href='/blog/categories/monetdb' style='font-size: 128.42105263157896%'>Monetdb</a>  <a href='/blog/categories/pjsip' style='font-size: 106.3157894736842%'>Pjsip</a>  <a href='/blog/categories/psychology' style='font-size: 106.3157894736842%'>Psychology</a>  <a href='/blog/categories/socket' style='font-size: 106.3157894736842%'>Socket</a>  <a href='/blog/categories/sql' style='font-size: 106.3157894736842%'>Sql</a>  <a href='/blog/categories/tp-link' style='font-size: 160.0%'>Tp-link</a>  <a href='/blog/categories/window' style='font-size: 103.15789473684211%'>Window</a> </span>
+</section>
+
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/03/07/zombie-process/">linux防止僵尸进程</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/07/popen/">popen函数执行程序</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/07/timer/">linux定时器</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/07/system-sleep/">linux信号处理的应用</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/07/get-changed-file/">shell自动打包修改文件</a>
+      </li>
+    
+  </ul>
+</section>
+<section>
+  <h1>Neighbour</h1>
+  <ul>
+	<li><a href="http://www.everet.org">EverET |</a><a href="http://coolshell.cn/"> CoolShell |</a> 
+		<a href="http://blog.youxu.info">XuYou </a></li>
+	<li><a href="http://www.kidsang.com">KidSang |</a><a href="http://jiafei.org/"> JiaFei |</a>
+		<a href="http://dbanotes.net/">DBanotes</a></li>
+	<li><a href="http://xuyufish.com">Fish |</a><a href="http://rdc.taobao.com/blog/cs/"> Taobao |</a>
+		<a href="http://stackoverflow.com">Stackoverflow</a></li>
+  </ul>
+</section>
+<section>
+    <h1>Recent Comments</h1>
+    <script type="text/javascript" src="http://coolbrain.disqus.com/recent_comments_widget.js?num_items=5&hide_avatars=0&avatar_size=32&excerpt_length=200"></script>
+</section>
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - ForgeBrain -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'coolbrain';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://coolbrain.github.com/blog/2015/01/01/computer-culture/';
+        var disqus_url = 'http://coolbrain.github.com/blog/2015/01/01/computer-culture/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
