@@ -1,0 +1,396 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>2016年秋的学习笔记 - ForgeBrain</title>
+  <meta name="author" content="ForgeBrain">
+
+  
+  <meta name="description" content="10月5日 · 技术 2016-10-09 07:58 一：基础知识的经过运用，二分查找，运用在二维数组的二分查找，数组的魔术数；堆排序，寻找大数据中最小或最大的几个数；快速排序，寻找第k大的数字，数组任意两个、三个、四个数字之和等于某个数字，奇偶数排列，三色球重排， 二： 优先队列的使用，sort &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://coolbrain.github.com/blog/2016/10/09/letters-2016-study-notes/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="ForgeBrain" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-39361176-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:coolbrain.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+    <li><a href="/">
+        <span class="blue_light">
+            ForgeBrain
+        </span>
+       
+           <span class="blue_dark">
+             Hardworking.
+           </span>
+       
+    </a></li>
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/essays/">Essays</a></li>
+  <li><a href="/about">About me</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">2016年秋的学习笔记</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2016-10-09T07:58:00+08:00" pubdate data-updated="true">Oct 9<span>th</span>, 2016</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><!-- essays:generated -->
+<h3>10月5日 · 技术</h3>
+<p><em>2016-10-09 07:58</em></p>
+<p>一：基础知识的经过运用，二分查找，运用在二维数组的二分查找，数组的魔术数；堆排序，寻找大数据中最小或最大的几个数；快速排序，寻找第k大的数字，数组任意两个、三个、四个数字之和等于某个数字，奇偶数排列，三色球重排，</p>
+<p>二： 优先队列的使用，sort函数，模板类的使用，虚析构函数，重载各种运算符和输入、输出，用数组存储超大数字，丑数的得出</p>
+<p>三： 合并排序，合并k个有序链表，文件排序，map、reduce的思想，大数据的切分与合并，</p>
+<p>四： 二分法，递归，回溯法，动态规划，贪心法</p>
+<p>五：圖像處理，拉普拉斯算子、窗口，canny算法，邊緣檢測、切圖，sift算法，矩陣變換，空間域與時間域的變化，傅里葉變換，目標追蹤</p>
+<h3>10月8日 · 面试</h3>
+<p><em>2016-10-09 07:59</em></p>
+<p>一：早上去Terark面試。<br />
+剛開始問的是有序集合zadd的實現原理，select選擇和range排序如何快速做到，平衡的二叉查找樹树節點加信息size = 左節點的個數+右節點的個數+1，如樹堆結構，保持二叉查找樹的性質同時也保持大小堆的性質<br />
+解釋紅黑樹，就如紅黑樹就是2-3-4樹<br />
+protobuf的速度問題，protobuf按照結構體組織數據，數據的存儲並不是連續的，速度並不快速<br />
+pppoe撥號，數據已經按照pppoe協議封裝，如果在經過vpn，數據在經過vpn協議的封裝。<br />
+二分查找，lower_bound( )和upper_bound( )函數的實現，sort的函數的參數比較函數的定義，數組p存儲的數組i的下標，對數組p按照a數組大小排序，然後根據已排好序的數組p對未排序的數組a進行快速排序<br />
+二維數組的全排列，遞歸與非遞歸的實現</p>
+<p>二：如果真是想編程更上一層樓的話，真是要下功夫的，一些經典的題目要仔細研究，一些書籍要仔細看，就如《程序員面試金典》、《劍指offer》、《進軍硅谷程序員面試揭秘》、《微軟面試100題系列》、《編程之美：微軟技術面試心得》、《算法導論》、《編程珠璣》等，並且要保持刷題的習慣，或者不斷投簡歷面試，或者做一些有意思的項目</p>
+<h3>10月10日 · 深度学习与智能驾驶</h3>
+<p><em>2016-10-10 08:35</em></p>
+<p>一：深度學習的卷積神經網絡卷積核的操作的深一層，權值共享、卷積操作代替全連接；卷積、池化操作如何計算。其實老師課件是來自斯坦福大學課程的課件，而這些視頻和課件我都有，《深度學習的視覺處理》和《深度學習的自然語言處理》，我要認真學習，並且要看caffe和Threano的源碼，這樣才能叫做深入地學習</p>
+<p>二：下午的凸優化課程主要講到了凸優化問題，如何識別問題是否為凸優化問題，進而能夠採取凸優化的算法解決。如局部最小等於全局最小等性質，擬凸優化問題也可以使用凸優化的方法解決</p>
+<p>三：<br />
+智能駕駛的前景：<br />
+減少道路擁堵，減少出門成本，減少交通事故的發生。</p>
+<p>智能駕駛：<br />
+輔助駕駛-&gt;自動駕駛-&gt;無人駕駛<br />
+特斯拉事故的原因：貨車是橫著停在馬路上，雷達能夠監測出來，但是為了誤判，並沒有進行特別的處理，當靠近卡車時，攝像頭識別失效，雷達也失效</p>
+<p>a. 感知能力<br />
+基於深度學習的目標識別<br />
+基於雷達的立體視覺系統<br />
+指引圖和定位系統<br />
+gnss rtk高精度定位-&gt;高精度慣導<br />
+基於視覺標誌物的指引圖和定位<br />
+把道路的標誌拼接起來(全景照片=將照片拼起來)</p>
+<p>b. 認知能力<br />
+語義分割：對道路事物的一種認知<br />
+路面平整度識別-&gt;駕駛員行為學習（從不撞到舒適的駕乘感受）<br />
+從確定的經驗到自學習<br />
+感知-&gt;規劃-&gt;控制（深度學習-&gt;經驗/專家系統）<br />
+從詠春木人樁到少林十八銅人（判斷態勢，評估他人動機，合理使用資源）</p>
+<p>做學問的體會：從歷史中找到智慧<br />
+衝浪和深潛（在潮流之中找到問題，在深潛中找到智慧）<br />
+AlapaGo：Policy Network策略網絡 and Value Network價值網絡</p>
+<p>卷積神經網絡CNN，遞歸神經網絡RNN，強化學習RL<br />
+識別，語義分割，行為分析，預測</p>
+<p>c.激光雷達+雷達+攝像頭 (視覺融合)</p>
+<p>d. 車連網<br />
+汽車的制動影響傳播</p>
+<p>算法只是拼圖的一部分，它是一項非常複雜的系統工程<br />
+安全可靠性設計方法學</p>
+<p>招聘人才要求：有種有趣有料有情有義</p>
+<h3>10月11日 · 课堂与生活</h3>
+<p><em>2016-10-11 08:42</em></p>
+<p>一：早上的運籌學課程：<br />
+單純形法的二次檢驗和大M法，單調循環字典序列進行非基與基變量的轉換<br />
+線性規劃的對偶問題，包括對偶的性質，對偶的轉化、弱對偶、對稱性</p>
+<p>二：下午的模式識別：<br />
+感知機訓練方式簡單，但感知機無法處理非線性的問題<br />
+多層感知機可以擬合區間內連續的函數<br />
+使用反向傳播算法對多層感知機進行訓練<br />
+非線性的SVM，引入核函數，低維映射到高維的空間<br />
+核fisher判別函數</p>
+<p>三：晚上的自然語言處理：<br />
+n元模型，考慮前面n-1個詞，訓練方法：最大似然估計，缺點：數據稀疏，解決數據稀疏問題：擴大訓練語料的規模，平滑技術（平衡技術），簡單平滑方法：概率高的減一部分，等概率分佈給沒有的，圖靈平滑；組合平滑方法，簡單線形插值，JM遞歸低階平滑和回退平滑<br />
+解釋了熵的概念，聯合熵，條件熵，相對熵，互信息等概念，還講解了噪音信道模型用於翻譯模型</p>
+<p>四：近期要注意的生活習慣：<br />
+晚上不能吃紅棗，由於內熱的原因會導致睡覺時發夢，睡覺效果會不好<br />
+晚上無論如何都要早點睡覺，因為相關的常識我是學習過，不應該違背該遵守的原則，充分足夠的睡眠是學習的前提，不然是產生厭學或者情緒不穩定的結果</p>
+<p>五：<br />
+細水長流：事情不能操之過急，而應該精打細算，細水長流。<br />
+雲淡風輕：無為，不要刻意去追求，也不要對事情看得那麼重。莫聽楓林打葉聲，何妨吟嘯且徐行。竹杖芒鞋輕勝馬，誰怕？一蓑煙雨任平生。料峭春風吹酒醒，微冷，山頭斜照卻相迎。回首向來蕭瑟處，歸去，也無風雨也無晴。</p>
+<p>相呴以湿，相濡以沫，不如相忘于江湖。與其兩人在狹窄的空間惺惺相惜，還不如到更大的空間獲得更好的發揮。《庄子·大宗师》。“泉涸，鱼相与处于陆，相呴以湿，相濡以沫，不如相忘于江湖。与其誉尧而非桀也，不如两忘而化其道。”</p>
+<p>尾生之約，表示守信的信念。《庄子•盗跖》：“尾生与女子期于梁（桥）下，女子不来，水至不去，抱梁柱而死。”<br />
+水，與世不爭，隨時而變，但利於萬物。老子的《道德经》第八章：上善若水。水善利万物，而不争；处众人之所恶，故几于道。居善地，心善渊，与善仁，言善信，政善治，事善能，动善时。夫唯不争，故无尤。</p>
+<p>與君子相交，淡如水；與小人相交，利益交織。《庄子•山木》有语：“君子之交淡如水，小人之交甘若醴。”</p>
+<p>中華書局典籍:《黃帝內經》、《金剛金、心經、壇經》、《莊子》、《老子》、《周易》、《唐詩三百首》、《宋詞三百首》、《詩經》、《論語》等</p>
+<h3>10月12日 · 课堂与讲座</h3>
+<p><em>2016-10-13 09:12</em></p>
+<p>一：上午的應用隨機過程，說了關於馬爾科夫收斂性。計量經濟學，應用時間序列分析，應用隨機過程，機器學習，模式識別的區別。<br />
+計量經濟學更加強調回歸分析和顯著檢驗，矩陣運算；<br />
+應用隨機過程，泊松分佈或者連續的馬爾科夫鏈；<br />
+應用時間序列分析，自回歸分析；<br />
+機器學習偏向於數據的分類，預測或者聚類分析；<br />
+模式識別與機器學習相似，涉及到線性和非線性分類，特征提取（線性變換），聚類分析（層次的聚類）</p>
+<p>二：下午的因果推斷與大數據學習，講了醫學數據的推斷，貝葉斯網絡的推斷，影響因子，直接影響或者間接影響。</p>
+<p>三：晚上聽了一個職業規劃的講座，想不到演講人腦洞大開，詳細地分析了美國大選的情況，分析民主黨與共和黨的選民分佈，Trump和Clinton各自的優勢和劣勢，來說明他二人的職業發展，從而引出職業發展的話題。正確的選擇和持續不斷的學習力是職業發展最持久的力量。</p>
+<p>L：<br />
+癌症<br />
+產生可能原因：<br />
+a. 遭受生活的重創，抑鬱，同時情緒也影響癌症的恢復<br />
+b. 致癌物質，如黃曲霉素，亞硝酸（發霉品，醃製品，燒烤品等）<br />
+治療：<br />
+a. 西醫，手術（切除腫瘤）、化療（全身的藥物治療）、放療，聽聞這治療方式特別痛苦，副作用大，在治療過程中，化療的副作用可能就使病人致死<br />
+b. 中醫，這個江湖郎中究竟行不行？可能要看中醫師的水平，這個絕對要找一流，一流的也未必靠譜的<br />
+c. 自然療法，從營養飲食和心理調節開始治療，將癌細胞看成是身體的一部分，與其和平共處</p>
+<p>臨床心理學<br />
+當事情不順的時候，可能會患上的精神類型的病。<br />
+抑鬱癥<br />
+產生原因：生活的挫折和遺傳因素的作用<br />
+人群分佈：青年人比老年人患上的概率更大<br />
+特征表現：<br />
+a. 對生活失去了興趣，內心感受不到快樂<br />
+b. 很難入睡，失眠，長期想睡眠，二十四個小時中二十個小時都想睡覺<br />
+c. 對食物失去口感或者暴飲暴食<br />
+d. 反應遲鈍或者行動緩慢、難以專注<br />
+e. 悠遊寡斷，離群<br />
+治療方式：<br />
+a. 藥物治療，如鎮靜劑，但是副作用也特別大<br />
+b. 行為認知治療，通過與患者溝通，了解導致抑鬱的生活挫折，了解其對其的反應和想法，從而伺機更正不正場的想法<br />
+c. 人際關係認知治療，在人群中認識自我，從而改變自身</p>
+<p>躁狂癥<br />
+特征表現：<br />
+a. 無所不能，認為自己是上帝下凡<br />
+b. 說話速度快，很多各種各樣的想法<br />
+c. 自我感覺非常好，情緒易激動</p>
+<p>精神分裂症<br />
+產生原理：遺傳和環境（創傷、緊張的家庭環境）<br />
+特征表現：<br />
+a. 幻聽<br />
+b. 幻想<br />
+c. 語言紊亂<br />
+d. 無意義的動作行為<br />
+e. 缺少正常的思維方式和情緒</p>
+<p>焦慮症<br />
+產生原因：兒童創傷，與抑鬱症有個</p>
+<p>恐懼症<br />
+準備理論</p>
+<p>強迫症<br />
+強迫自己重複做同樣的事情，如潔癖和宗教禮拜</p>
+<p>解離症<br />
+產生的原因：可怕的經歷<br />
+記憶的解離，失憶症</p>
+<p>精神病的判定依賴的不是醫學的證據，而是依據社會規範</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">ForgeBrain</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2016-10-09T07:58:00+08:00" pubdate data-updated="true">Oct 9<span>th</span>, 2016</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/letters/'>邮件</a>, <a class='category' href='/blog/tags/study/'>求学</a>, <a class='category' href='/blog/tags/career/'>求职</a>, <a class='category' href='/blog/tags/health/'>健康</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+  
+</div>
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2016/10/09/letter-2016-10-06-films/" title="Previous Post: 国庆看过的电影">&laquo; 国庆看过的电影</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Motto</h1>
+  <p>Reading is fantastic</p>
+  <p>Read incomparable book</p>
+  <p>Be enthusiastic in studying</p>
+  <p>PS:email:juda-zhida@qq.com</p>
+</section>
+
+<section>
+<h1>Tags</h1>
+<span class='categories_tag'><!--essay-tags--> <a href='/blog/categories/emotion' style='font-size: 120%'>情感</a>  <a href='/blog/categories/reason' style='font-size: 120%'>理性</a>  <a href='/blog/categories/qzone' style='font-size: 120%'>QQ空间日志</a>  <a href='/blog/categories/letters' style='font-size: 120%'>邮件</a>  <a href='/blog/tags/family/' style='font-size: 130%'>家庭</a> <a href='/blog/tags/parents/' style='font-size: 112%'>父母</a> <a href='/blog/tags/growth/' style='font-size: 125%'>成长</a> <a href='/blog/tags/reflection/' style='font-size: 160%'>反思</a> <a href='/blog/tags/campus/' style='font-size: 128%'>校园</a> <a href='/blog/tags/study/' style='font-size: 125%'>求学</a> <a href='/blog/tags/career/' style='font-size: 110%'>求职</a> <a href='/blog/tags/gratitude/' style='font-size: 118%'>感恩</a> <a href='/blog/tags/outlook/' style='font-size: 138%'>人生观</a> <a href='/blog/tags/buddhism/' style='font-size: 102%'>佛学</a> <a href='/blog/tags/confidence/' style='font-size: 115%'>自信</a> <a href='/blog/tags/friendship/' style='font-size: 102%'>友情</a> <a href='/blog/tags/travel/' style='font-size: 112%'>旅行</a> <a href='/blog/tags/plans/' style='font-size: 108%'>计划</a> <a href='/blog/tags/money/' style='font-size: 110%'>金钱</a> <a href='/blog/tags/health/' style='font-size: 122%'>健康</a> <a href='/blog/tags/film/' style='font-size: 112%'>电影</a> <a href='/blog/tags/reading/' style='font-size: 105%'>读书</a> <a href='/blog/tags/mood/' style='font-size: 132%'>情绪</a> <!--/essay-tags--> <a href='/blog/categories/english' style='font-size: 109.47368421052632%'>English</a>  <a href='/blog/categories/entertainment' style='font-size: 109.47368421052632%'>Entertainment</a>  <a href='/blog/categories/health' style='font-size: 103.15789473684211%'>Health</a>  <a href='/blog/categories/intern' style='font-size: 106.3157894736842%'>Intern</a>  <a href='/blog/categories/java' style='font-size: 103.15789473684211%'>Java</a>  <a href='/blog/categories/journey' style='font-size: 109.47368421052632%'>Journey</a>  <a href='/blog/categories/library' style='font-size: 106.3157894736842%'>Library</a>  <a href='/blog/categories/life' style='font-size: 128.42105263157896%'>Life</a>  <a href='/blog/categories/linux' style='font-size: 147.3684210526316%'>Linux</a>  <a href='/blog/categories/literature' style='font-size: 106.3157894736842%'>Literature</a>  <a href='/blog/categories/monetdb' style='font-size: 128.42105263157896%'>Monetdb</a>  <a href='/blog/categories/pjsip' style='font-size: 106.3157894736842%'>Pjsip</a>  <a href='/blog/categories/psychology' style='font-size: 106.3157894736842%'>Psychology</a>  <a href='/blog/categories/socket' style='font-size: 106.3157894736842%'>Socket</a>  <a href='/blog/categories/sql' style='font-size: 106.3157894736842%'>Sql</a>  <a href='/blog/categories/tp-link' style='font-size: 160.0%'>Tp-link</a>  <a href='/blog/categories/window' style='font-size: 103.15789473684211%'>Window</a> </span>
+</section>
+
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/03/07/zombie-process/">linux防止僵尸进程</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/07/popen/">popen函数执行程序</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/07/timer/">linux定时器</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/07/system-sleep/">linux信号处理的应用</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/07/get-changed-file/">shell自动打包修改文件</a>
+      </li>
+    
+  </ul>
+</section>
+<section>
+  <h1>Neighbour</h1>
+  <ul>
+	<li><a href="http://www.everet.org">EverET |</a><a href="http://coolshell.cn/"> CoolShell |</a> 
+		<a href="http://blog.youxu.info">XuYou </a></li>
+	<li><a href="http://www.kidsang.com">KidSang |</a><a href="http://jiafei.org/"> JiaFei |</a>
+		<a href="http://dbanotes.net/">DBanotes</a></li>
+	<li><a href="http://xuyufish.com">Fish |</a><a href="http://rdc.taobao.com/blog/cs/"> Taobao |</a>
+		<a href="http://stackoverflow.com">Stackoverflow</a></li>
+  </ul>
+</section>
+<section>
+    <h1>Recent Comments</h1>
+    <script type="text/javascript" src="http://coolbrain.disqus.com/recent_comments_widget.js?num_items=5&hide_avatars=0&avatar_size=32&excerpt_length=200"></script>
+</section>
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - ForgeBrain -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'coolbrain';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://coolbrain.github.com/blog/2016/10/09/letters-2016-study-notes/';
+        var disqus_url = 'http://coolbrain.github.com/blog/2016/10/09/letters-2016-study-notes/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
