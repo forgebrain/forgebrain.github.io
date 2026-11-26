@@ -43,6 +43,7 @@ CATEGORIES = {
     "reason": ("理性", "博客园「理性类」随笔。"),
     "qzone": ("QQ空间日志", "QQ空间「一枯一荣」里的日志，2009–2012。"),
     "wechat": ("公众号", "微信公众号「静志灼灼」上的文章，2019。"),
+    "prose": ("散文与讲稿", "写在文档和幻灯片里的散文与讲稿，2015–2016。"),
     "letters": ("邮件", "2016 年秋天用 QQ邮箱写下的每日总结。"),
 }
 CATEGORY_ORDER = list(CATEGORIES)
@@ -68,6 +69,7 @@ TAGS = {
     "电影": "film",
     "读书": "reading",
     "情绪": "mood",
+    "技术": "tech",
 }
 
 MONTHS = "Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec".split()
@@ -266,7 +268,7 @@ def main():
         )
 
     # 3. /essays/ landing page
-    parts = ["\n<p>这里收录了我早年散落在博客园、QQ空间、公众号和邮件里的文字。可以按主题浏览，也可以按来源浏览。</p>\n",
+    parts = ["\n<p>这里收录了我早年散落在博客园、QQ空间、公众号、邮件和文档里的文字。可以按主题浏览，也可以按来源浏览。</p>\n",
              f'\n<h2>按主题</h2>\n<p class="essay-tags">{cloud()}</p>\n']
     for cat in CATEGORY_ORDER:
         sub = [e for e in essays if e["cat"] == cat]
