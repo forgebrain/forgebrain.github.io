@@ -268,18 +268,44 @@ def main():
             for t in used_tags
         )
 
-    # 3. /essays/ landing page
-    parts = ["\n<p>这里收录了我早年散落在博客园、QQ空间、公众号、邮件和文档里的文字。可以按主题浏览，也可以按来源浏览。</p>\n",
-             f'\n<h2>按主题</h2>\n<p class="essay-tags">{cloud()}</p>\n']
+    # 3. /essays/ landing page: by time (default), by theme, by source
+    def li(e):
+        t = html.escape(e["title"], quote=False)
+        tg = " ".join(f"<a href='/blog/tags/{TAGS[x]}/' style='color:#999'>#{x}</a>" for x in e["tags"])
+        return (f'  <li><span style="color:#888;font-family:monospace">{e["date"]:%Y-%m-%d}</span> '
+                f'<a href="{e["url"]}">{t}</a> <small>{tg}</small></li>\n')
+
+    newest = sorted(essays, key=lambda e: e["date"], reverse=True)
+    by_time = []
+    for y in sorted({e["date"].year for e in essays}, reverse=True):
+        sub = [e for e in newest if e["date"].year == y]
+        by_time.append(f'\n<h3>{y} <small>({len(sub)})</small></h3>\n<ul>\n' + "".join(li(e) for e in sub) + "</ul>\n")
+    by_theme = []
+    for t in sorted(used_tags, key=lambda t: -tag_count[t]):
+        sub = [e for e in newest if t in e["tags"]]
+        by_theme.append(f'\n<h3 id="tag-{TAGS[t]}"><a href="/blog/tags/{TAGS[t]}/">{t}</a> <small>({len(sub)})</small></h3>\n<ul>\n'
+                        + "".join(li(e) for e in sub) + "</ul>\n")
+    by_src = []
     for cat in CATEGORY_ORDER:
-        sub = [e for e in essays if e["cat"] == cat]
+        sub = [e for e in newest if e["cat"] == cat]
         if not sub:
             continue
         name, intro = CATEGORIES[cat]
-        parts.append(f'\n<h2><a href="/blog/categories/{cat}/">{name}</a> <small>({len(sub)})</small></h2>\n<p>{intro}</p>\n<ul>\n')
-        for e in sorted(sub, key=lambda e: e["date"], reverse=True):
-            parts.append(f'  <li><a href="{e["url"]}">{html.escape(e["title"], quote=False)}</a> <span style="color:#888">{e["date"]:%Y-%m-%d}</span></li>\n')
-        parts.append("</ul>\n")
+        by_src.append(f'\n<h3><a href="/blog/categories/{cat}/">{name}</a> <small>({len(sub)})</small></h3>\n<p>{intro}</p>\n<ul>\n'
+                      + "".join(li(e) for e in sub) + "</ul>\n")
+    tabs = [("time", "按时间", by_time), ("theme", "按主题", by_theme), ("source", "按来源", by_src)]
+    parts = [f"\n<p>这里收录了我早年散落在博客园、QQ空间、公众号、邮件和文档里的文字，共 {len(essays)} 篇。可以按时间、主题或来源浏览。</p>\n",
+             f'<p class="essay-tags">{cloud()}</p>\n',
+             "<style>#essay-tabs a{display:inline-block;margin-right:1em;padding:.2em .6em;border-bottom:2px solid transparent;text-decoration:none}"
+             "#essay-tabs a.on{border-color:#b03a2e;color:#b03a2e;font-weight:bold}"
+             ".essay-view ul{list-style:none;margin-left:0}.essay-view li{margin:.25em 0}</style>\n",
+             '<p id="essay-tabs">' + "".join(f'<a href="#{k}" data-v="{k}">{n}</a>' for k, n, _ in tabs) + "</p>\n"]
+    for k, n, body in tabs:
+        parts.append(f'<div class="essay-view" id="view-{k}">\n<h2>{n}</h2>\n' + "".join(body) + "</div>\n")
+    parts.append("""<script>(function(){var ks=['time','theme','source'];function show(k){if(ks.indexOf(k)<0)k='time';
+ks.forEach(function(x){document.getElementById('view-'+x).style.display=x==k?'':'none';});
+var as=document.querySelectorAll('#essay-tabs a');for(var i=0;i<as.length;i++)as[i].className=as[i].getAttribute('data-v')==k?'on':'';}
+window.addEventListener('hashchange',function(){show(location.hash.slice(1));});show(location.hash.slice(1));})();</script>\n""")
     page = re.sub(r"<title>.*?</title>", "<title>Essays - ForgeBrain</title>", ctpl, count=1)
     page = page.replace("Category: Life", "Essays 随笔")
     page = replace_archive_body(page, "".join(parts))
