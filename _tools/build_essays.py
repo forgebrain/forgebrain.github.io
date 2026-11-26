@@ -72,6 +72,11 @@ TAGS = {
 
 MONTHS = "Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec".split()
 GEN_MARK = "<!-- essays:generated -->"
+# emphasis styles for essays: **key point** in accent colour, ==phrase== as a soft highlight
+ESSAY_STYLE = (
+    "<style>.essay strong{color:#b03a2e;font-weight:bold}"
+    ".essay mark{background:#fdf2c4;color:inherit;padding:0 .15em}</style>"
+)
 SHOW_SOURCE_NOTE = False  # the post header already shows the original date
 
 
@@ -103,6 +108,8 @@ def load_essays():
         for t in tags:
             assert t in TAGS, (path, t)
         body_md = m.group(2).strip()
+        # ==text== marks a highlighted phrase (rendered as <mark>)
+        body_md = re.sub(r"==(.+?)==", r"<mark>\1</mark>", body_md)
         body = markdown.markdown(body_md, extensions=["nl2br", "sane_lists"])
         plain = re.sub(r"<[^>]+>", "", body)
         plain = re.sub(r"\s+", " ", html.unescape(plain)).strip()
@@ -161,7 +168,7 @@ def render_post(tpl, e, prev, nxt):
         if e["source_url"]:
             src = f'<a href="{html.escape(e["source_url"])}">{src}</a>'
         note = f'\n<p class="essay-source" style="color:#888;font-size:.85em">原载于{src}，原发表时间 {e["date"]:%Y-%m-%d %H:%M}。</p>'
-    content = f'<div class="entry-content">{GEN_MARK}\n{e["body"]}{note}\n</div>'
+    content = f'<div class="entry-content">{GEN_MARK}{ESSAY_STYLE}\n<div class="essay">\n{e["body"]}{note}\n</div>\n</div>'
     out = re.sub(r'<div class="entry-content">.*?</div>\n', lambda m: content + "\n", out, count=1, flags=re.S)
     out = re.sub(r'<span class="categories">.*?</span>',
                  f'<span class="categories">\n  \n    {links(e)}\n  \n</span>',
